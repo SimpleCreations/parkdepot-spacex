@@ -1,17 +1,17 @@
 import React from "react";
-import Stack from "react-bootstrap/Stack";
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import Layout from "./Layout";
+
+const apolloClient = new ApolloClient({
+  uri: process.env.REACT_APP_API_ENDPOINT,
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
-    <Stack gap={3}>
-      <Navbar as="header" bg="light">
-        <Container>
-          <Navbar.Brand>SpaceX</Navbar.Brand>
-        </Container>
-      </Navbar>
-    </Stack>
+    <ApolloProvider client={apolloClient}>
+      <Layout />
+    </ApolloProvider>
   );
 }
 

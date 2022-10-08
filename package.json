@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.7.0",
     "bootstrap": "^5.2.2",
+    "graphql": "^16.6.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
@@ -14,7 +16,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prettier": "prettier --write **/*.{js,jsx,ts,tsx,scss}"
+    "prettier": "prettier --write **/*.{js,jsx,ts,tsx,scss}",
+    "apollo:schema": "env-cmd -x -f .env apollo service:download --endpoint=\\$REACT_APP_API_ENDPOINT ./__generated__/graphql-schema.json",
+    "apollo:codegen": "apollo codegen:generate --localSchemaFile=./__generated__/graphql-schema.json --target=typescript --tagName=gql --passthroughCustomScalars --globalTypesFile=./__generated__/globalTypes.ts",
+    "apollo": "npm run apollo:schema && npm run apollo:codegen"
   },
   "eslintConfig": {
     "extends": [
@@ -42,6 +47,7 @@
     "@types/node": "^16.11.64",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "env-cmd": "^10.1.0",
     "prettier": "^2.7.1",
     "react-scripts": "5.0.1",
     "sass": "^1.55.0",
