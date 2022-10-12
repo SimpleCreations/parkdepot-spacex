@@ -42,3 +42,7 @@ export interface GetShips_ships {
 export interface GetShips {
   ships: (GetShips_ships | null)[] | null;
 }
+
+export interface GetShipsVariables {
+  type?: string | null;
+}
