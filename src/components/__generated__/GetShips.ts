@@ -45,4 +45,6 @@ export interface GetShips {
 
 export interface GetShipsVariables {
   type?: string | null;
+  limit: number;
+  offset: number;
 }
