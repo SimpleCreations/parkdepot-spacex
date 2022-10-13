@@ -35,27 +35,10 @@ const SHIPS_QUERY = gql`
       name
       image
       type
-      abs
-      active
-      attempted_landings
-      class
-      course_deg
       home_port
-      imo
-      mmsi
-      model
-      position {
-        latitude
-        longitude
-      }
-      roles
-      speed_kn
-      status
-      successful_landings
-      url
-      weight_kg
-      weight_lbs
       year_built
+      weight_kg
+      active
     }
   }
 `;
